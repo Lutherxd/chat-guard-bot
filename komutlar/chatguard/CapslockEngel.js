@@ -18,11 +18,13 @@ if(!args[0]) {
     
     <a:unlem:822522470925336646> **Davet Engel Sistemi :** ${data.CapslockEngel ? "**\`✅\`** Açık" : "<:kapali:822759611471233035> Kapalı"}`))}
 if(args[0] == 'aç') {
+    if(message.author.id !== message.guild.owner.user.id && !ayarlar.sahip) return message.channel.send(embed.setDescription(`<a:unlem:822522470925336646> Merhaba bu komutu sadece ${message.guild.owner.user.tag} kullanabilir.`))
     if(data && data.CapslockEngel === true) return message.channel.send(embed.setDescription(`<:tik:822557127767621683> Davet engel sistemi zaten **aktif!**`))
     message.channel.send(embed.setDescription(`<:tik:822557127767621683> Davet engel sistemi başarıyla **aktif** edildi!`))
     await database.findOneAndUpdate({guildID: message.guild.id}, {CapslockEngel: true}, {upsert: true});
 } 
 if(args[0] == 'kapat') {
+    if(message.author.id !== message.guild.owner.user.id && !ayarlar.sahip) return message.channel.send(embed.setDescription(`<a:unlem:822522470925336646> Merhaba bu komutu sadece ${message.guild.owner.user.tag} kullanabilir.`))
     if(data && data.CapslockEngel === false) return message.channel.send(embed.setDescription(`<:altinred:822569045668790303> Davet engel sistemi zaten **deaktif!**`))
     message.channel.send(embed.setDescription(`<:tik:822557127767621683> Davet engel sistemi başarıyla **deaktif** edildi!`))
     await database.findOneAndUpdate({guildID: message.guild.id}, {CapslockEngel: false}, {upsert: true});
