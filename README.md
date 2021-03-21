@@ -1,2 +1,2 @@
 # chat-guard-bot
-# Yardım Almak için discord.gg/serendia
+Yardım Almak için discord.gg/serendia
